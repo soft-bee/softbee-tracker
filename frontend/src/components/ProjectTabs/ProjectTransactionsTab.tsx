@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import { Grid } from '@mui/material';
 import { ReportTable } from '..';
 import { getFormattedDate } from 'helpers';
-import { useNormalizedTrackers, useNormalizedUsers } from 'hooks';
-import { MultipleSelect, RangeCalendar } from 'legos';
+import { useNormalizedTrackers } from 'hooks';
+import { RangeCalendar } from 'legos';
 import { AddNewTransaction } from 'components/AddNewTransaction';
 
 type Props = {
@@ -13,9 +13,6 @@ type Props = {
 
 export const ProjectTransactionsTab = ({ projectId }: Props) => {
   const [selectedDates, setSelectedDates] = useState([new Date()]);
-  const [selectedEmployees, setSelectedEmployees] = useState<string[]>([]);
-
-  const { usersChoices } = useNormalizedUsers();
 
   const reportFilter = {
     user: {
@@ -49,16 +46,6 @@ export const ProjectTransactionsTab = ({ projectId }: Props) => {
         <RangeCalendar
           selectedDates={selectedDates}
           setSelectedDates={setSelectedDates}
-        />
-      </Grid>
-      <Grid item xs={5}>
-        <MultipleSelect
-          label="Employees"
-          size="small"
-          variant="outlined"
-          items={usersChoices}
-          value={selectedEmployees}
-          setValue={setSelectedEmployees}
         />
       </Grid>
       <Grid item xs={2}>
