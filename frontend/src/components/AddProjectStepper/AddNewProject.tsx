@@ -38,7 +38,7 @@ const steps: CreateProjectStep[] = [
 ];
 
 export const AddNewProject = ({
-  setIsCreateProject,
+  handleSetCreateProject,
   projectId,
 }: ProjectProps) => {
   const [activeStep, setActiveStep] = useState(0);
@@ -123,10 +123,10 @@ export const AddNewProject = ({
       };
       projectId
         ? updateProject(projectId, data).then(() => {
-            setIsCreateProject(false);
+            handleSetCreateProject(false);
           })
         : createProject(data).then(() => {
-            setIsCreateProject(false);
+            handleSetCreateProject(false);
           });
     },
   });
@@ -198,7 +198,7 @@ export const AddNewProject = ({
               ) : (
                 <Button
                   variant="outlined"
-                  onClick={() => setIsCreateProject(false)}
+                  onClick={() => handleSetCreateProject(false)}
                   sx={{ width: 150 }}
                 >
                   Cancel

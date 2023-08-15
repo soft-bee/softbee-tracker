@@ -16,6 +16,10 @@ const ProjectPage: React.FC<PageProps> = ({ title }) => {
   const [statusFilter, setStatusFilter] = useState('active');
   const [projectId, setProjectId] = useState('');
 
+  const handleSetCreateProject = (value: boolean) => {
+    setIsCreateProject(value);
+  };
+
   const onToggleForm = () => {
     setIsCreateProject(!isCreateProject);
     setProjectId('');
@@ -53,7 +57,7 @@ const ProjectPage: React.FC<PageProps> = ({ title }) => {
     >
       {isCreateProject ? (
         <AddNewProject
-          setIsCreateProject={setIsCreateProject}
+          handleSetCreateProject={handleSetCreateProject}
           projectId={projectId}
         />
       ) : (

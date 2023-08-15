@@ -13,7 +13,7 @@ export enum CreateProjectFields {
 }
 
 export type ProjectProps = {
-  setIsCreateProject: React.Dispatch<React.SetStateAction<boolean>>;
+  handleSetCreateProject: (value: boolean) => void;
   projectId: string;
 };
 
