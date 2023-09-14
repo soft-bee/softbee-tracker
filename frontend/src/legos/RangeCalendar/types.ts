@@ -12,4 +12,5 @@ export type RangeCalendarProps = {
   disableFuture?: boolean;
   maxDate?: Date;
   minDate?: Date;
+  isRequestLeave?: boolean;
 };

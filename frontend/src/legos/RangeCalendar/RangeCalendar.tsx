@@ -25,6 +25,7 @@ export const RangeCalendar: React.FC<RangeCalendarProps> = ({
   selectedDates,
   setSelectedDates,
   defaultRangeDates,
+  isRequestLeave,
   ...rest
 }) => {
   const isSetDefaultRangeDates = !!defaultRangeDates;
@@ -119,8 +120,10 @@ export const RangeCalendar: React.FC<RangeCalendarProps> = ({
                   renderDay={(day, selectedDays, pickersDayProps) => {
                     const isBetweenDates =
                       isAfter(day, subDays(selectedDates[0], 1)) &&
-                      isBefore(subDays(day, 1), selectedDates[1]);
-
+                      isBefore(
+                        subDays(day, isRequestLeave ? 0 : 1),
+                        selectedDates[1]
+                      );
                     return (
                       <PickersDay
                         className={isBetweenDates ? 'Mui-selected' : ''}

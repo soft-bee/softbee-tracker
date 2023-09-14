@@ -232,6 +232,7 @@ export const BreaksRequestForm: React.FC<BreaksRequestFormProps> = ({
       </ButtonGroup>
       <RangeCalendar
         disablePast
+        isRequestLeave
         maxDate={endOfYear(new Date())}
         selectedDates={selectedDates}
         setSelectedDates={setSelectedDates}
